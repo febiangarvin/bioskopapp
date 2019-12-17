@@ -1,0 +1,474 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "dobleh",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "username": "jamal",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "username": "qaz",
+      "password": "123",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "password": "111",
+      "username": "abi",
+      "role": "user",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "username": "billa",
+      "password": "123",
+      "role": "user"
+    }
+  ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "Studio 1",
+      "jumlahKursi": 260
+    },
+    {
+      "id": 2,
+      "nama": "Studio 2",
+      "jumlahKursi": 240
+    },
+    {
+      "id": 3,
+      "nama": "Studio 3",
+      "jumlahKursi": 200
+    },
+    {
+      "id": 4,
+      "nama": "Studio 4 3D",
+      "jumlahKursi": 100
+    },
+    {
+      "id": 5,
+      "nama": "Studio 5 3D",
+      "jumlahKursi": 80
+    },
+    {
+      "nama": "Studio Mini",
+      "jumlahKursi": "50",
+      "id": 6
+    }
+  ],
+  "movies": [
+    {
+      "title": "Knives Out",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.\nKeluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.\nUntuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu. ",
+      "sutradara": "Rian Johnson",
+      "genre": "Mystery",
+      "durasi": "130",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        12,
+        16,
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/qGqiHJTsRkQ",
+      "studioId": "1",
+      "id": 2
+    },
+    {
+      "title": "Jumanji: The Next Level",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+      "sutradara": "Jake Kasdan",
+      "genre": "Adventure",
+      "durasi": "123",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        14,
+        18,
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
+      "studioId": "1",
+      "id": 3
+    },
+    {
+      "title": "Jumanji: The Next Level (IMAX 3D)",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,\nkeempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.\nPara pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan\nselamat dari permainan paling berbahaya di dunia.",
+      "sutradara": "Jake Kasdan ",
+      "genre": "Adventure",
+      "durasi": "123",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        12,
+        16,
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
+      "studioId": "4",
+      "id": 4
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
+      "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka. ",
+      "sutradara": "J.J. Abrams",
+      "genre": "Sci-Fi",
+      "durasi": "142",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        12,
+        16,
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/x0IM35BtPkw",
+      "studioId": "2",
+      "id": 5
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker (IMAX 3D)",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157527080348609_287x421.jpg",
+      "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka. ",
+      "sutradara": "J.J. Abrams",
+      "genre": "Sc-Fi",
+      "durasi": "142",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        14,
+        18,
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/x0IM35BtPkw",
+      "studioId": "4",
+      "id": 6
+    },
+    {
+      "title": "Black Christmas",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157423869457882_287x421.jpg",
+      "sinopsis": "Sekelompok mahasiswi diteror oleh orang asing selama liburan Natal mereka. Mereka mencoba mencari tahu siapa dalangnya. Saat menemukan petunjuk, mereka menyadari bahwa si pembunuh adalah bagian dari konspirasi jahat yang ada di universitas mereka. ",
+      "sutradara": "Sophia Takal",
+      "genre": "Mystery",
+      "durasi": "92",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/DH-9_6Eg-qc",
+      "studioId": "2",
+      "id": 7
+    },
+    {
+      "title": "Ford v Ferrari",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
+      "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+      "sutradara": "James Mangold",
+      "genre": "Biography",
+      "durasi": "152",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        14
+      ],
+      "trailer": "https://www.youtube.com/embed/zyYgDtY2AMY",
+      "studioId": "2",
+      "id": 8
+    },
+    {
+      "title": "21 Bridges",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157018191975549_287x421.jpg",
+      "sinopsis": "Pasca terbunuhnya delapan kepolisian NYPD. Andre Davis (Chadwick Boseman) memutuskan menyegel pulau Manhattan. 21 Jembatan, 3 jalur sungai dan kereta ditutup demi menangkap pelaku pembunuhan.  Namun dibalik pengejaran ini terungkap konspirasi besar yang menghubungkan kejadian masa lalu Davis dan kasus yang sedang dikerjakannya. ",
+      "sutradara": "Brian Kirk",
+      "genre": "Action",
+      "durasi": "99",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        18
+      ],
+      "trailer": "https://www.youtube.com/embed/BVZDhunTrYA",
+      "studioId": "2",
+      "id": 9
+    },
+    {
+      "title": "Marriage Story",
+      "image": "https://m.media-amazon.com/images/M/MV5BZGVmY2RjNDgtMTc3Yy00YmY0LTgwODItYzBjNWJhNTRlYjdkXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "A stage director and his actor wife struggle through a gruelling, coast-to-coast divorce that pushes them to their personal and creative extremes.",
+      "sutradara": "Noah Baumbach",
+      "genre": "Drama",
+      "durasi": "136",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        12,
+        14
+      ],
+      "trailer": "https://www.youtube.com/embed/BHi-a1n8t7M",
+      "studioId": "1",
+      "id": 10
+    },
+    {
+      "title": "The Irishman",
+      "image": "https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_UY268_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "Frank \"The Irishman\" Sheeran is a man with a lot on his mind. The former labor union high official and hitman, learned to kill serving in Italy during the Second World War. He now looks back on his life and the hits that defined his mob career, maintaining connections with the Bufalino crime family. In particular, the part he claims to have played in the disappearance of his life-long friend, Jimmy Hoffa, the former president of the International Brotherhood of Teamsters, who mysteriously vanished in late July 1975 at the age of 62.",
+      "sutradara": "Martin Scorsese",
+      "genre": "Biography",
+      "durasi": "209",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        16,
+        18
+      ],
+      "trailer": "https://www.youtube.com/embed/RS3aHkkfuEI",
+      "studioId": "3",
+      "id": 11
+    },
+    {
+      "title": "Riverdale (Series - Playing Everyday)",
+      "image": "https://m.media-amazon.com/images/M/MV5BNDYxOTU0NDYtYzg2MC00YzgyLTg1YzctMDc1MGJmOGIzMTc3XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "After the death of one of the rich and popular Blossom twins on the 4th of July, the small town of Riverdale investigates the murder. The series starts in September, the beginning of a new school year, that brings with it new students, relationships, and reveals the mysteries of the past 4th of July",
+      "sutradara": "Roberto Aguirre-Sacasa",
+      "genre": "Drama",
+      "durasi": "45",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/1PUHc9ZDKHM",
+      "studioId": "3",
+      "id": 12
+    },
+    {
+      "title": "Stranger Things 3 (Series - Playing Everyday)",
+      "image": "https://m.media-amazon.com/images/M/MV5BZGExYjQzNTQtNGNhMi00YmY1LTlhY2MtMTRjODg3MjU4YTAyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "In a small town where everyone knows everyone, a peculiar incident starts a chain of events that leads to the disappearance of a child, which begins to tear at the fabric of an otherwise peaceful community. Dark government agencies and seemingly malevolent supernatural forces converge on the town, while a few of the locals begin to understand that there's more going on than meets the eye.",
+      "sutradara": "Matt Duffer, Ross Duffer",
+      "genre": "Adventure",
+      "durasi": "51",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/YEG3bmU_WaI",
+      "studioId": "3",
+      "id": 13
+    },
+    {
+      "title": "For All Mankind 3D (Series - Playing Everyday)",
+      "image": "https://m.media-amazon.com/images/M/MV5BNDE3NDA4ZmItMWRjMi00Y2M0LWIyZDctOWVmZjFhZmE3ZjBkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "The series explores what would have happened if the global space race had never ended.",
+      "sutradara": "Ronald D. Moore, Ben Nedivi, Matt Wolpert",
+      "genre": "Adventure",
+      "durasi": "60",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/HZS9M52Bd_w",
+      "studioId": "5",
+      "id": 14
+    },
+    {
+      "title": "See 3D (Series - Playing Everyday)",
+      "image": "https://m.media-amazon.com/images/M/MV5BYWI2ZmM5ZTgtOTgxYS00MTQ4LThkMjQtZjBlNGM3NjQ5YTI5XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "Far in a dystopian future, the human race has lost the sense of sight, and society has had to find new ways to interact, build, hunt, and to survive. All of that is challenged when a set of twins is born with sight.",
+      "sutradara": "Steven Knight",
+      "genre": "Adventure",
+      "durasi": "60",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        12,
+        14
+      ],
+      "trailer": "https://www.youtube.com/embed/03RAKJipMeM",
+      "studioId": "5",
+      "id": 15
+    },
+    {
+      "title": "Togo 3D",
+      "image": "https://m.media-amazon.com/images/M/MV5BNjJkYTc5N2UtMGRlMC00M2FmLTk0ZWMtOTYxNDUwNjI2YzljXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "The story of the sled dog, Togo, who led the 1925 serum run, but was considered by most to be too small and weak to lead such an intense race. ",
+      "sutradara": "Ericson Core",
+      "genre": "Adventure",
+      "durasi": "120",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        16,
+        18
+      ],
+      "trailer": "https://www.youtube.com/embed/HMfyueM-ZBQ",
+      "studioId": "5",
+      "id": 16
+    },
+    {
+      "title": "Game Of Thrones S8 3D (Series - Playing Everyday)",
+      "image": "https://m.media-amazon.com/images/M/MV5BMjA5NzA5NjMwNl5BMl5BanBnXkFtZTgwNjg2OTk2NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "sinopsis": "Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years. ",
+      "sutradara": "David Benioff, D.B. Weiss",
+      "genre": "Adventure",
+      "durasi": "57",
+      "produksi": "Purwadhika Studios",
+      "jadwal": [
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/rlR4PJn8b8I",
+      "studioId": "5",
+      "id": 17
+    }
+  ],
+  "orders": [
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 20,
+      "bayar": false,
+      "id": 10
+    },
+    {
+      "userId": 6,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 14,
+      "bayar": false,
+      "id": 11
+    },
+    {
+      "userId": 5,
+      "movieId": 4,
+      "totalharga": 80000,
+      "jadwal": 20,
+      "bayar": false,
+      "id": 12
+    },
+    {
+      "userId": 5,
+      "movieId": 7,
+      "totalharga": 75000,
+      "jadwal": 22,
+      "bayar": false,
+      "id": 13
+    },
+    {
+      "userId": 5,
+      "movieId": 17,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 14
+    }
+  ],
+  "ordersDetails": [
+    {
+      "orderId": 10,
+      "seat": 16,
+      "row": 1,
+      "id": 28
+    },
+    {
+      "orderId": 10,
+      "seat": 17,
+      "row": 1,
+      "id": 29
+    },
+    {
+      "orderId": 10,
+      "seat": 18,
+      "row": 1,
+      "id": 30
+    },
+    {
+      "orderId": 11,
+      "seat": 9,
+      "row": 2,
+      "id": 31
+    },
+    {
+      "orderId": 11,
+      "seat": 10,
+      "row": 2,
+      "id": 32
+    },
+    {
+      "orderId": 11,
+      "seat": 11,
+      "row": 2,
+      "id": 33
+    },
+    {
+      "orderId": 12,
+      "seat": 13,
+      "row": 1,
+      "id": 34
+    },
+    {
+      "orderId": 12,
+      "seat": 12,
+      "row": 1,
+      "id": 35
+    },
+    {
+      "orderId": 12,
+      "seat": 11,
+      "row": 1,
+      "id": 36
+    },
+    {
+      "orderId": 12,
+      "seat": 17,
+      "row": 0,
+      "id": 38
+    },
+    {
+      "orderId": 12,
+      "seat": 18,
+      "row": 0,
+      "id": 39
+    },
+    {
+      "orderId": 13,
+      "seat": 9,
+      "row": 0,
+      "id": 40
+    },
+    {
+      "orderId": 13,
+      "seat": 10,
+      "row": 0,
+      "id": 41
+    },
+    {
+      "orderId": 13,
+      "seat": 11,
+      "row": 0,
+      "id": 42
+    },
+    {
+      "orderId": 14,
+      "seat": 19,
+      "row": 2,
+      "id": 43
+    },
+    {
+      "orderId": 14,
+      "seat": 18,
+      "row": 2,
+      "id": 44
+    },
+    {
+      "orderId": 14,
+      "seat": 17,
+      "row": 2,
+      "id": 45
+    }
+  ]
+}
