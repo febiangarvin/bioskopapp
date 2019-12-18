@@ -13,10 +13,10 @@
       "role": "user"
     },
     {
-      "id": 3,
       "username": "jamal",
-      "password": "123",
-      "role": "user"
+      "password": "111",
+      "role": "user",
+      "id": 3
     },
     {
       "username": "qaz",
@@ -321,7 +321,7 @@
         20
       ],
       "trailer": "https://www.youtube.com/embed/rlR4PJn8b8I",
-      "studioId": "5",
+      "studioId": "6",
       "id": 17
     }
   ],
@@ -365,6 +365,14 @@
       "jadwal": 12,
       "bayar": false,
       "id": 14
+    },
+    {
+      "userId": 3,
+      "movieId": 6,
+      "totalharga": 120000,
+      "jadwal": 14,
+      "bayar": false,
+      "id": 15
     }
   ],
   "ordersDetails": [
@@ -469,6 +477,24 @@
       "seat": 17,
       "row": 2,
       "id": 45
+    },
+    {
+      "orderId": 15,
+      "seat": 7,
+      "row": 0,
+      "id": 46
+    },
+    {
+      "orderId": 15,
+      "seat": 8,
+      "row": 0,
+      "id": 47
+    },
+    {
+      "orderId": 15,
+      "seat": 9,
+      "row": 0,
+      "id": 48
     }
   ]
 }

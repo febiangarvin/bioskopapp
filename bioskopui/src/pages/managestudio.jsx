@@ -5,6 +5,8 @@ import { Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 import Jump from 'react-reveal/Jump'
 import { APIURL } from '../support/ApiURL';
 import Swal from 'sweetalert2'
+import NotFound from '../pages/notfound'
+import { connect } from 'react-redux'
 
 class ManageStudio extends Component {
     state = {
@@ -119,6 +121,10 @@ class ManageStudio extends Component {
 
     render() {
         const length = this.state.dataStudio
+        if (this.props.AuthRole !== "admin") { // //proteksi admin (hanya admin yang bisa akses)
+            return <NotFound />;
+        }
+
         if (length === 0) {
             return <div>Loading...</div>
         }
@@ -184,4 +190,11 @@ class ManageStudio extends Component {
     }
 }
 
-export default ManageStudio;
+const MapstateToprops = (state) => { // //melakukan map state ke props
+    return {
+        AuthLog: state.Auth.login,
+        AuthRole: state.Auth.role
+    }
+}
+
+export default connect(MapstateToprops)(ManageStudio);

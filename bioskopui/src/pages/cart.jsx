@@ -1,9 +1,10 @@
 import React, { Component } from 'react' // //#14
 import Axios from 'axios'
 import { connect } from 'react-redux'
-// import { Table, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { APIURL } from './../support/ApiURL'
 import { Icon, Menu, Table, Popup, Button } from 'semantic-ui-react'
+import { totalHargaAction } from '../redux/actions'
+// import { Table, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 // import { element } from 'prop-types'
 import { NotifCart } from '../redux/actions/'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
@@ -16,12 +17,17 @@ class Cart extends Component {
         detailSeat: []
     }
 
-    // //=========================================================================================================// //
+// //=========================================================================================================// //
 
     componentDidMount() { // //render mount data
         Axios.get(`${APIURL}orders?_expand=movie&userId=${this.props.UserId}&bayar=false`) // //mengambil data dari db
             .then((res) => { // //jika Axios berhasil di load
                 var datacart = res.data // //variable data pembelian dari data (db)
+                var harga = 0
+                for (var i = 0; i < datacart.length; i++) {
+                    harga += datacart[i].totalharga
+                }
+                this.setState({ totalharga: harga })
                 var qtyarr = [] // //buat variable array kosong untuk menampung metode push
                 res.data.forEach(element => { // //melakukan looping untuk array data cart
                     qtyarr.push(Axios.get(`${APIURL}ordersDetails?orderId=${element.id}`))
@@ -51,10 +57,9 @@ class Cart extends Component {
             })
     }
 
-    // //=========================================================================================================// //
+// //=========================================================================================================// //
 
     renderCart = () => { // //function render pembelian
-        console.log(this.state.datacart)
         if (this.state.datacart !== null) { // //kondisi jika belum melakukan pembelian
             if (this.state.datacart.length === 0) {
                 return (
@@ -105,7 +110,7 @@ class Cart extends Component {
         }
     }
 
-    // //=========================================================================================================// //
+// //=========================================================================================================// //
 
     btnDetail = (index) => {
         var id = this.state.datacart[index].id
@@ -130,47 +135,15 @@ class Cart extends Component {
             })
     }
 
-    // //=========================================================================================================// //
+// //=========================================================================================================// //
 
     render() { // //render akhir
+        this.props.totalHargaAction(this.state.totalharga)
         if (this.props.UserId) {
             return (
-                <div className='mt-3 '>
-                    {/* <Modal isOpen={this.state.modaldetail} toggle={()=>{this.setState({modaldetail:false})}}>
-                    <ModalHeader>
-                        Details
-                    </ModalHeader>
-                    <ModalBody>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>
-                                        No.
-                                    </th>
-                                    <th>
-                                        Bangku
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.datacart!==null && this.state.datacart.length!==0 ?
-                                this.state.datacart[this.state.indexdetail].qty.map((val,index)=>{
-                                    return(
-                                        <tr key={index}>
-                                            <td>{index+1}</td>
-                                            <td>{'abcdefghijklmnopqrstuvwxyz'.toUpperCase()[val.row]+[val.seat+1]}</td>
-                                        </tr>
-                                    )
-                                })
-                                :
-                                null
-                                }
-                            </tbody>
-                        </Table>
-                    </ModalBody>
-                </Modal> */}
+                <div className='mt-5'>
                     <center>
-                        <Table celled style={{ width: '70%' }}>
+                    <Table color='grey' inverted celled style={{ width: '70%', height: '100px' }} >
                             {/* header */}
                             <Table.Header>
 
@@ -179,6 +152,7 @@ class Cart extends Component {
                                     <Table.HeaderCell >Title</Table.HeaderCell>
                                     <Table.HeaderCell >Jadwal Tayang </Table.HeaderCell>
                                     <Table.HeaderCell >Jumlah</Table.HeaderCell>
+                                    <Table.HeaderCell >Harga</Table.HeaderCell>
                                     <Table.HeaderCell >Summary</Table.HeaderCell>
                                 </Table.Row>
 
@@ -190,20 +164,16 @@ class Cart extends Component {
                             </Table.Body>
                             {/* footer */}
                             <Table.Footer>
-
                                 <Table.Row>
-                                    <Table.HeaderCell colSpan='5'>
-                                        <Menu floated='right' pagination>
-                                            <Menu.Item as='a' icon>
-                                                <Icon size='small' name='chevron left' />
-                                            </Menu.Item>
-                                            <Menu.Item as='a' icon>
-                                                <Icon size='small' name='chevron right' />
-                                            </Menu.Item>
-                                        </Menu>
+                                    <Table.HeaderCell colSpan='6' floated='center'>
+                                        <Button size='large' animated='vertical' color='instagram' inverted style={{ marginLeft: '841px' }}>
+                                            <Button.Content hidden>Checkout</Button.Content>
+                                            <Button.Content visible>
+                                                Total Rp {this.props.totalharga}
+                                            </Button.Content>
+                                        </Button>
                                     </Table.HeaderCell>
                                 </Table.Row>
-
                             </Table.Footer>
                         </Table >
                     </center>
@@ -219,8 +189,10 @@ const MapstateToprops = (state) => {
     return {
         AuthLog: state.Auth.login,
         UserId: state.Auth.id,
-        keranjang: state.Auth.keranjang
+        keranjang: state.Auth.keranjang,
+        totalharga: state.Auth.totalharga
     }
 }
 
-export default connect(MapstateToprops)(Cart)
+
+export default connect(MapstateToprops, { totalHargaAction })(Cart)
