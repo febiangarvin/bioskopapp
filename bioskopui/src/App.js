@@ -17,6 +17,7 @@ import Cart from './pages/cart';
 import NotFound from './pages/notfound';
 import ResetPassword from './pages/resetpassword'
 import ManageStudio from './pages/managestudio'
+// import History from './pages/history'
 
 class App extends Component { // //karena berupa container, gunakan class
   state = { 
@@ -80,6 +81,7 @@ class App extends Component { // //karena berupa container, gunakan class
           <Route path='/belitiket' exact component={BeliTiket} />
           <Route path={'/login'} exact component={Login}/>
           <Route path='/cart' exact component={Cart} />
+          {/* <Route path={'/history'} exact component={History} /> */}
           <Route path='/resetpassword' exact component={ResetPassword} />
           <Route path={'/register'} exact component={Register} />
           <Route path='/*' exact component={NotFound} />

@@ -6,18 +6,21 @@ import { Icon, Menu, Table, Popup, Button } from 'semantic-ui-react'
 import { totalHargaAction } from '../redux/actions'
 // import { Table, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 // import { element } from 'prop-types'
-import { NotifCart } from '../redux/actions/'
+// import { NotifCart } from '../redux/actions/'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
+import NotFound from '../pages/notfound'
 
 class Cart extends Component {
     state = {
         datacart: null, // //buat variable dengan array kosong untuk menampung data pembelian
         modaldetail: false,
+        modaldelete: false,
+        modalindex: '',
         indexdetail: 0,
         detailSeat: []
     }
 
-// //=========================================================================================================// //
+    // //=========================================================================================================// //
 
     componentDidMount() { // //render mount data
         Axios.get(`${APIURL}orders?_expand=movie&userId=${this.props.UserId}&bayar=false`) // //mengambil data dari db
@@ -57,7 +60,7 @@ class Cart extends Component {
             })
     }
 
-// //=========================================================================================================// //
+    // //=========================================================================================================// //
 
     renderCart = () => { // //function render pembelian
         if (this.state.datacart !== null) { // //kondisi jika belum melakukan pembelian
@@ -74,48 +77,66 @@ class Cart extends Component {
                         <Table.Cell>{val.movie.title}</Table.Cell>
                         <Table.Cell><Icon name='wait' /> {val.jadwal}:00</Table.Cell>
                         <Table.Cell>{val.qty.length}</Table.Cell>
-                        {/* <Table.Cell><button className='btn btn-primary'>Detail</button></Table.Cell> */}
                         <Table.Cell>
-                            <Popup
-                                position='right center'
-                                content={<Table singleLine color='teal' inverted>
-                                    <Table.Header>
-                                        <Table.Row>
-                                            <Table.HeaderCell>Total</Table.HeaderCell>
-                                            <Table.HeaderCell>Seat</Table.HeaderCell>
-                                        </Table.Row>
-                                    </Table.Header>
-
-                                    <Table.Body>
-
-                                        <Table.Row key={index} >
-                                            <Table.Cell>{this.state.detailSeat.length}</Table.Cell>
-                                            <Table.Cell>{this.state.detailSeat.map((val, i) => {
-                                                return val + ', '
-                                            })}
-                                            </Table.Cell>
-                                        </Table.Row>
-                                    </Table.Body>
-                                </Table>}
-                                on='click'
-                                pinned
-                                trigger={<Button floated='right' color='instagram' size='tiny' onClick={() => this.btnDetail(index)}>Detail</Button>
-                                }
-                            />
+                            <button className='mt-2 mb-2 mr-2 btn btn-info' onClick={() => this.setState({ modaldetail: true, modalindex: index })}>Detail</button>
+                            {/* <button className='mt-2 mb-2 btn btn-danger' onClick={()=>this.setState({modaldelete:true,datadelete:val})}>Delete</button> */}
                         </Table.Cell>
-
+                        {/* OPEN MODAL DETAIL FILM */}
+                        <Modal isOpen={this.state.modaldetail} toggle={() => this.setState({ modaldetail: false })} size='sm'>
+                            <ModalHeader>
+                                {this.state.modalindex !== '' ?
+                                    this.detailhead()
+                                    :
+                                    null
+                                }
+                            </ModalHeader>
+                            <ModalBody>
+                                <center>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td style={{ width: '50px' }}><center>No.</center></td>
+                                                <td style={{ width: '100px' }}><center>Seat</center></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {this.state.modalindex !== '' ?
+                                                this.state.datacart[this.state.modalindex].qty.map((val, index) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <td style={{ width: '50px' }}><center>{index + 1}</center></td>
+                                                            <td style={{ width: '100px' }}><center>{'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[val.row]} {val.seat + 1}</center></td>
+                                                        </tr>
+                                                    )
+                                                })
+                                                :
+                                                null
+                                            }
+                                        </tbody>
+                                    </table>
+                                </center>
+                            </ModalBody>
+                        </Modal>
                     </Table.Row>
                 )
             })
         }
     }
 
-// //=========================================================================================================// //
+    // //=========================================================================================================// //
 
-    btnDetail = (index) => {
-        var id = this.state.datacart[index].id
-        Axios.get(`${APIURL}ordersDetails?orderId=${id}`)
-            .then(res => {
+    detailhead = () => { // //function untuk menampilkan keterangan di head detail
+        return (
+            <div>Order Detail Number: {this.state.datacart[this.state.modalindex].id} </div>
+        )
+    }
+
+    // //=========================================================================================================// //
+
+    btnDetail = (index) => { // //function button detail
+        var id = this.state.datacart[index].id // //membuat variable untuk mengambil state dari data cart
+        Axios.get(`${APIURL}ordersDetails?orderId=${id}`) // //mengambil data order dari db
+            .then(res => { // //jika axios berhasil
                 var detailfilm = res.data
                 var seat = []
                 var row = []
@@ -123,27 +144,32 @@ class Cart extends Component {
                     seat.push(val.seat)
                     row.push(val.row)
                 })
-                var abjad = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                 var posisi = []
-                for (var i = 0; i < seat.length; i++) {
-                    for (var j = 0; j < abjad.length; j++) {
+                for (var i = 0; i < seat.length; i++) { // //looping tampilan tempat duduk
+                    for (var j = 0; j < alphabet.length; j++) {
                         if (row[i] === j) {
-                            posisi.push(String(abjad[j]) + (seat[i] + 1))
+                            posisi.push(String(alphabet[j]) + (seat[i] + 1))
                         }
                     }
                 } this.setState({ detailSeat: posisi })
             })
     }
 
-// //=========================================================================================================// //
+    // //=========================================================================================================// //
 
     render() { // //render akhir
         this.props.totalHargaAction(this.state.totalharga)
+
+        if (this.props.AuthRole !== "user") { // //proteksi user (hanya user yang bisa akses)
+            return <NotFound />;
+        }
+
         if (this.props.UserId) {
             return (
                 <div className='mt-5'>
                     <center>
-                    <Table color='grey' inverted celled style={{ width: '70%', height: '100px' }} >
+                        <Table color='grey' inverted celled style={{ width: '70%', height: '100px' }} >
                             {/* header */}
                             <Table.Header>
 
@@ -152,8 +178,7 @@ class Cart extends Component {
                                     <Table.HeaderCell >Title</Table.HeaderCell>
                                     <Table.HeaderCell >Jadwal Tayang </Table.HeaderCell>
                                     <Table.HeaderCell >Jumlah</Table.HeaderCell>
-                                    <Table.HeaderCell >Harga</Table.HeaderCell>
-                                    <Table.HeaderCell >Summary</Table.HeaderCell>
+                                    <Table.HeaderCell >Action</Table.HeaderCell>
                                 </Table.Row>
 
                             </Table.Header>
@@ -166,6 +191,7 @@ class Cart extends Component {
                             <Table.Footer>
                                 <Table.Row>
                                     <Table.HeaderCell colSpan='6' floated='center'>
+                                        {/* button untuk checkout */}
                                         <Button size='large' animated='vertical' color='instagram' inverted style={{ marginLeft: '841px' }}>
                                             <Button.Content hidden>Checkout</Button.Content>
                                             <Button.Content visible>
@@ -189,6 +215,7 @@ const MapstateToprops = (state) => {
     return {
         AuthLog: state.Auth.login,
         UserId: state.Auth.id,
+        AuthRole: state.Auth.role,
         keranjang: state.Auth.keranjang,
         totalharga: state.Auth.totalharga
     }

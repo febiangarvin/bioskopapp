@@ -77,7 +77,7 @@ class BeliTiket extends Component {
         var pilihan = this.state.pilihan
         var jadwal = this.state.jam
         var studioId = this.props.location.state.studioId
-        if(studioId == '4'&&'5'){ // //format harga akhir
+        if(studioId == '4'&&'5'){ // //buat sebuah kondisi, apabila film tersebut berada di studio 4 & 5 (film 3D), maka harganya berbeda
             var totalharga = this.state.pilihan.length * 40000
         }
             else{
@@ -93,6 +93,13 @@ class BeliTiket extends Component {
         }
         Axios.post(`${APIURL}orders`, dataorders) // //meletakan data baru pada db
             .then((res) => { // //apabila axios berhasil dilakukan
+                Axios.get(`${APIURL}orders?userId=${res.data.id}`)
+                    .then((res2) => {
+                        console.log(res2.data.length)
+                        // this.props.keranjangAction(res2.data.length)
+                    }).catch((err) => {
+                        console.log(err)
+                    })
                 var dataordersdetail = [] // //variable dengan array baru
                 pilihan.forEach((val) => { // //melakukan looping pada variable pilihan
                     dataordersdetail.push({ // //melakukan push ke variable dengan array kosong sebelumnya
@@ -101,7 +108,6 @@ class BeliTiket extends Component {
                         row: val.row
                     })
                 })
-                console.log(dataordersdetail)
                 var dataordersdetail2 = [] // //variable dengan array baru
                 dataordersdetail.forEach((val) => { // //melakukan looping pada variable pilihan
                     dataordersdetail2.push(Axios.post(`${APIURL}ordersDetails`, val))
@@ -117,6 +123,13 @@ class BeliTiket extends Component {
             }).catch((err) => {
                 console.log(err)
             })
+    }
+
+// //=========================================================================================================// //
+
+    onClickOkOrder = () => { // //function untuk setting notifikasi cart dan pembelian
+        this.setState({ openmodalcart: false })
+        window.location.reload()
     }
 
 // //=========================================================================================================// //
@@ -151,12 +164,18 @@ class BeliTiket extends Component {
 
 // //=========================================================================================================// //
 
+    onResetSeat = () =>{ // //function reset pilihan kursi (sebelum buy)
+        this.setState({pilihan:[]})
+    }
+
+// //=========================================================================================================// //
+
     renderHargaQuantity = () => { // //function harga
         var jumlahtiket = this.state.pilihan.length // //variable yang mengambil banyaknya pilihan
         var studioId = this.props.location.state.studioId
         var harga = jumlahtiket * 25000
         var harga3d = jumlahtiket * 40000
-        if(studioId == '4'&&'5'){ // //format harga akhir
+        if(studioId == '4'&&'5'){ // //buat sebuah kondisi, apabila film tersebut berada di studio 4 & 5 (film 3D), maka harganya berbeda
             return (
             <div>
                 {jumlahtiket}Tiket x {Numeral(40000).format('0,0.00')}={'Rp.' + Numeral(harga3d).format('Rp0,0.00')}
@@ -188,11 +207,11 @@ class BeliTiket extends Component {
             arr[this.state.booked[j].row][this.state.booked[j].seat] = 3
         }
 
-        for (let a = 0; a < this.state.pilihan.length; a++) { // //looping kuris yang akan dipesan
+        for (let a = 0; a < this.state.pilihan.length; a++) { // //looping kursi yang akan dipesan
             arr[this.state.pilihan[a].row][this.state.pilihan[a].seat] = 2
         }
 
-        var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' // //alfabet sebagai tempat kursi
 
         var jsx = arr.map((val, index) => { // //variable tampilan kursi di web
             return (
@@ -257,7 +276,7 @@ class BeliTiket extends Component {
                     <Modal isOpen={this.state.openmodalcart}>
                                                 {/* body modal cart */}
                         <ModalBody>
-                            Berhasil Ditambahkan
+                            Added Successfully
                         </ModalBody>
                                                 {/* footer modal cart */}
                         <ModalFooter>
@@ -275,6 +294,9 @@ class BeliTiket extends Component {
                         <div>
                             {this.state.pilihan.length ? <button onClick={this.onOrderClick} className='btn btn-primary mt-3'>Buy Now</button>
                                 : null}
+                            
+                            {this.state.pilihan.length ? <button onClick={this.onResetSeat} className='btn btn-warning mt-3'>Reset</button>
+                            : null}
                         </div>
                         {this.state.pilihan.length ?
                             this.renderHargaQuantity()

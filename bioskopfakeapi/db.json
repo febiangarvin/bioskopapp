@@ -35,13 +35,25 @@
       "username": "billa",
       "password": "123",
       "role": "user"
+    },
+    {
+      "username": "test",
+      "password": "123",
+      "role": "user",
+      "id": 7
+    },
+    {
+      "username": "test2",
+      "password": "111",
+      "role": "user",
+      "id": 8
     }
   ],
   "studios": [
     {
-      "id": 1,
       "nama": "Studio 1",
-      "jumlahKursi": 260
+      "jumlahKursi": "260",
+      "id": 1
     },
     {
       "id": 2,
@@ -64,7 +76,7 @@
       "jumlahKursi": 80
     },
     {
-      "nama": "Studio Mini",
+      "nama": "Studio Kecil",
       "jumlahKursi": "50",
       "id": 6
     }
@@ -274,7 +286,7 @@
         22
       ],
       "trailer": "https://www.youtube.com/embed/HZS9M52Bd_w",
-      "studioId": "5",
+      "studioId": "6",
       "id": 14
     },
     {
@@ -292,46 +304,14 @@
       "trailer": "https://www.youtube.com/embed/03RAKJipMeM",
       "studioId": "5",
       "id": 15
-    },
-    {
-      "title": "Togo 3D",
-      "image": "https://m.media-amazon.com/images/M/MV5BNjJkYTc5N2UtMGRlMC00M2FmLTk0ZWMtOTYxNDUwNjI2YzljXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_UX182_CR0,0,182,268_AL_.jpg",
-      "sinopsis": "The story of the sled dog, Togo, who led the 1925 serum run, but was considered by most to be too small and weak to lead such an intense race. ",
-      "sutradara": "Ericson Core",
-      "genre": "Adventure",
-      "durasi": "120",
-      "produksi": "Purwadhika Studios",
-      "jadwal": [
-        16,
-        18
-      ],
-      "trailer": "https://www.youtube.com/embed/HMfyueM-ZBQ",
-      "studioId": "5",
-      "id": 16
-    },
-    {
-      "title": "Game Of Thrones S8 3D (Series - Playing Everyday)",
-      "image": "https://m.media-amazon.com/images/M/MV5BMjA5NzA5NjMwNl5BMl5BanBnXkFtZTgwNjg2OTk2NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
-      "sinopsis": "Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years. ",
-      "sutradara": "David Benioff, D.B. Weiss",
-      "genre": "Adventure",
-      "durasi": "57",
-      "produksi": "Purwadhika Studios",
-      "jadwal": [
-        20
-      ],
-      "trailer": "https://www.youtube.com/embed/rlR4PJn8b8I",
-      "studioId": "6",
-      "id": 17
     }
   ],
   "orders": [
     {
       "userId": 5,
       "movieId": 2,
-      "totalharga": 75000,
       "jadwal": 20,
-      "bayar": false,
+      "bayar": true,
       "id": 10
     },
     {
@@ -345,26 +325,16 @@
     {
       "userId": 5,
       "movieId": 4,
-      "totalharga": 80000,
       "jadwal": 20,
-      "bayar": false,
+      "bayar": true,
       "id": 12
     },
     {
       "userId": 5,
       "movieId": 7,
-      "totalharga": 75000,
       "jadwal": 22,
-      "bayar": false,
+      "bayar": true,
       "id": 13
-    },
-    {
-      "userId": 5,
-      "movieId": 17,
-      "totalharga": 75000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 14
     },
     {
       "userId": 3,
@@ -373,6 +343,69 @@
       "jadwal": 14,
       "bayar": false,
       "id": 15
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "jadwal": 12,
+      "bayar": true,
+      "id": 16
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 17
+    },
+    {
+      "userId": 7,
+      "movieId": 16,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 18
+    },
+    {
+      "userId": 7,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 19
+    },
+    {
+      "userId": 7,
+      "movieId": 4,
+      "totalharga": 120000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 20
+    },
+    {
+      "userId": 8,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 21
+    },
+    {
+      "userId": 8,
+      "movieId": 15,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 22
+    },
+    {
+      "userId": 8,
+      "movieId": 14,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 23
     }
   ],
   "ordersDetails": [
@@ -461,24 +494,6 @@
       "id": 42
     },
     {
-      "orderId": 14,
-      "seat": 19,
-      "row": 2,
-      "id": 43
-    },
-    {
-      "orderId": 14,
-      "seat": 18,
-      "row": 2,
-      "id": 44
-    },
-    {
-      "orderId": 14,
-      "seat": 17,
-      "row": 2,
-      "id": 45
-    },
-    {
       "orderId": 15,
       "seat": 7,
       "row": 0,
@@ -495,6 +510,150 @@
       "seat": 9,
       "row": 0,
       "id": 48
+    },
+    {
+      "orderId": 16,
+      "seat": 11,
+      "row": 0,
+      "id": 49
+    },
+    {
+      "orderId": 16,
+      "seat": 12,
+      "row": 0,
+      "id": 50
+    },
+    {
+      "orderId": 16,
+      "seat": 13,
+      "row": 0,
+      "id": 51
+    },
+    {
+      "orderId": 17,
+      "seat": 11,
+      "row": 0,
+      "id": 52
+    },
+    {
+      "orderId": 17,
+      "seat": 12,
+      "row": 0,
+      "id": 53
+    },
+    {
+      "orderId": 17,
+      "seat": 13,
+      "row": 0,
+      "id": 54
+    },
+    {
+      "orderId": 18,
+      "seat": 0,
+      "row": 0,
+      "id": 55
+    },
+    {
+      "orderId": 18,
+      "seat": 1,
+      "row": 0,
+      "id": 56
+    },
+    {
+      "orderId": 18,
+      "seat": 2,
+      "row": 0,
+      "id": 57
+    },
+    {
+      "orderId": 19,
+      "seat": 8,
+      "row": 4,
+      "id": 58
+    },
+    {
+      "orderId": 19,
+      "seat": 9,
+      "row": 4,
+      "id": 59
+    },
+    {
+      "orderId": 19,
+      "seat": 10,
+      "row": 4,
+      "id": 60
+    },
+    {
+      "orderId": 20,
+      "seat": 9,
+      "row": 2,
+      "id": 61
+    },
+    {
+      "orderId": 20,
+      "seat": 10,
+      "row": 2,
+      "id": 62
+    },
+    {
+      "orderId": 20,
+      "seat": 11,
+      "row": 2,
+      "id": 63
+    },
+    {
+      "orderId": 21,
+      "seat": 6,
+      "row": 2,
+      "id": 64
+    },
+    {
+      "orderId": 21,
+      "seat": 7,
+      "row": 2,
+      "id": 65
+    },
+    {
+      "orderId": 21,
+      "seat": 8,
+      "row": 2,
+      "id": 66
+    },
+    {
+      "orderId": 22,
+      "seat": 11,
+      "row": 1,
+      "id": 67
+    },
+    {
+      "orderId": 22,
+      "seat": 12,
+      "row": 1,
+      "id": 68
+    },
+    {
+      "orderId": 22,
+      "seat": 13,
+      "row": 1,
+      "id": 69
+    },
+    {
+      "orderId": 23,
+      "seat": 13,
+      "row": 0,
+      "id": 70
+    },
+    {
+      "orderId": 23,
+      "seat": 14,
+      "row": 0,
+      "id": 71
+    },
+    {
+      "orderId": 23,
+      "seat": 15,
+      "row": 0,
+      "id": 72
     }
   ]
 }
